@@ -8,12 +8,7 @@ public class EdgeWeightedDigraph {
     private int[] indegree;             // indegree[v] = indegree of vertex v
     private int[] stopMapping;
     
-    /**
-     * Initializes an empty edge-weighted digraph with {@code V} vertices and 0 edges.
-     *
-     * @param  V the number of vertices
-     * @throws IllegalArgumentException if {@code V < 0}
-     */
+    //Initialises a graph with V vertices and 0 edges
     @SuppressWarnings("unchecked")
 	public EdgeWeightedDigraph(int V) {
         if (V < 0) throw new IllegalArgumentException("Number of vertices in a Digraph must be non-negative");
@@ -25,10 +20,12 @@ public class EdgeWeightedDigraph {
             adj[v] = new Bag<DirectedEdge>();
     }
     
+    //does some mapping to find out which node id corresponds to stop id
     public void mapStop(int stopId, int adjIndex) {
     	stopMapping[adjIndex] = stopId;
     }
-    
+	
+    //creates a new edge in the graph
     public void createEdge(int from, int to, int weight) {
     	
     	DirectedEdge newEdge = new DirectedEdge(from, to, weight);
@@ -64,51 +61,25 @@ public class EdgeWeightedDigraph {
     }
 
 
-    /**
-     * Returns the directed edges incident from vertex {@code v}.
-     *
-     * @param  v the vertex
-     * @return the directed edges incident from vertex {@code v} as an Iterable
-     * @throws IllegalArgumentException unless {@code 0 <= v < V}
-     */
+    //returns an iterable of directed edges from node v
     public Iterable<DirectedEdge> adj(int v) {
         validateVertex(v);
         return adj[v];
     }
 
-    /**
-     * Returns the number of directed edges incident from vertex {@code v}.
-     * This is known as the <em>outdegree</em> of vertex {@code v}.
-     *
-     * @param  v the vertex
-     * @return the outdegree of vertex {@code v}
-     * @throws IllegalArgumentException unless {@code 0 <= v < V}
-     */
+   //number of outward directed edges
     public int outdegree(int v) {
         validateVertex(v);
         return adj[v].size();
     }
 
-    /**
-     * Returns the number of directed edges incident to vertex {@code v}.
-     * This is known as the <em>indegree</em> of vertex {@code v}.
-     *
-     * @param  v the vertex
-     * @return the indegree of vertex {@code v}
-     * @throws IllegalArgumentException unless {@code 0 <= v < V}
-     */
+   //number of inward directed edges
     public int indegree(int v) {
         validateVertex(v);
         return indegree[v];
     }
 
-    /**
-     * Returns all directed edges in this edge-weighted digraph.
-     * To iterate over the edges in this edge-weighted digraph, use foreach notation:
-     * {@code for (DirectedEdge e : G.edges())}.
-     *
-     * @return all edges in this edge-weighted digraph, as an iterable
-     */
+    //returns all directed edges in the graph
     public Iterable<DirectedEdge> edges() {
         Bag<DirectedEdge> list = new Bag<DirectedEdge>();
         for (int v = 0; v < V; v++) {
@@ -119,12 +90,7 @@ public class EdgeWeightedDigraph {
         return list;
     } 
 
-    /**
-     * Returns a string representation of this edge-weighted digraph.
-     *
-     * @return the number of vertices <em>V</em>, followed by the number of edges <em>E</em>,
-     *         followed by the <em>V</em> adjacency lists of edges
-     */
+    //returns string representation
     public String toString() {
         StringBuilder s = new StringBuilder();
         s.append(V + " " + E + NEWLINE);
