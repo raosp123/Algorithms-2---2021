@@ -36,20 +36,12 @@ public class EdgeWeightedDigraph {
     	
     }
 
-    /**
-     * Returns the number of vertices in this edge-weighted digraph.
-     *
-     * @return the number of vertices in this edge-weighted digraph
-     */
+    //returns number of vertices in graph
     public int V() {
         return V;
     }
 
-    /**
-     * Returns the number of edges in this edge-weighted digraph.
-     *
-     * @return the number of edges in this edge-weighted digraph
-     */
+    //returns number of edges in graph
     public int E() {
         return E;
     }
@@ -60,13 +52,7 @@ public class EdgeWeightedDigraph {
             throw new IllegalArgumentException("vertex " + v + " is not between 0 and " + (V-1));
     }
 
-    /**
-     * Adds the directed edge {@code e} to this edge-weighted digraph.
-     *
-     * @param  e the edge
-     * @throws IllegalArgumentException unless endpoints of edge are between {@code 0}
-     *         and {@code V-1}
-     */
+    //Adds a directed edge to this edge-weighted digraph. 
     public void addEdge(DirectedEdge e) {
         int v = e.from();
         int w = e.to();
