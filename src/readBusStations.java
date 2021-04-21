@@ -1,6 +1,27 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+/**
+     * fileToLinesArray, what the function does:
+     * this function takes stop.txt file, and breaks it down line by line and stores it in the linesArray.
+     * 
+     * parameters: explain the input parameters
+     * 1) fileName: which is "stop.txt", name of the file which will be broken down into lines.
+     * 2) arraySize: int number which represents the size of the array (8759 in our case)
+     *
+     * returns: linesArray with all the lines, beggining with the second one (1888,51874,WB HASTINGS ST FS HOLDOM AVE-,....)
+     
+     * linesArrToTST, what the function does:
+     * this function takes the linesArray, produced by the function above, and breaks it down further. However, unlike the previous function, this one 
+     * only takes part of the text, stop id and stop name in particular. These values are then stored in the 2d array.
+     * parameters: explain the input parameters
+     * 1) linesArray: array with all the stop.txt lines.
+     * 2) arraySize: int number which represents the size of the array (8759 in our case)
+     *
+     * returns: linesArray with all the lines, beggining with the second one (1888,51874,WB HASTINGS ST FS HOLDOM AVE-,....)
+     */
+
+
 
 public class readBusStations {
 
