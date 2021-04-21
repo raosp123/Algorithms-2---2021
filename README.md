@@ -1,23 +1,36 @@
 # Algorithms-2---2021
 
 
-//TODO
+//TODO, what everyone is currently working on
 
 
-File reading:
+File reading (Sai) :
 
-reading in files to fill data for the other classes
+  -Call graph functions to fill the graph based on inputs: 
+      public EdgeWeightedDigraph(int V) = V is the number of Vertices
+      createEdge(int from, int to, int weight) = from is the start vertice, to is the end vertice, weight is the cost from the start to end
+      
+  -Store stop_times.txt and transfer.txt
 
-TST:
-(Mark is doing this) splitting and storing the names of stops by character in a ternary search tree
+  -you can use mark's function if you want in readBusStations.java for stops.txt, or make your own
 
-ShortestPath:
 
-idk yet but probably dijkstra
+TST (Mark):
 
-Graph:
-Graph class to use in shortest Paths, made from data read in from File reader
+  -splitting and storing the names of stops by character in a ternary search tree
 
-Main(commandLine):
-user can pass specific arguments to make the program do specific functions as stated in the design specifications
+
+ShortestPath (Pascal):
+
+  -Dijkstra using graph data
+
+SearchFortrips (Nathan):
+  
+  -searches for trips based on specific arrival time critera as input by user
+
+
+Main(commandLine) (tbd):
+  user can pass specific arguments to make the program do specific functions as stated in the design specifications
+
+
 
