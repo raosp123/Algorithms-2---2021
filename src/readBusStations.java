@@ -104,7 +104,7 @@ public class readBusStations {
 			if (line != null) {
 				tokens = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
 			}	
-			//coping full info and it's bus stop id into another array, so it full information can be showed to user.
+			//coping full info and it's bus stop id into another array, so the full information can be showed to user.
 			arrWithFullInfo[i][1] = line;
 			arrWithFullInfo[i][0] = tokens[0];
 		}
