@@ -14,6 +14,7 @@ public class EdgeWeightedDigraph {
         if (V < 0) throw new IllegalArgumentException("Number of vertices in a Digraph must be non-negative");
         this.V = V;
         this.E = 0;
+        this.stopMapping = new int[V];
         this.indegree = new int[V];
         adj = (Bag<DirectedEdge>[]) new Bag[V];
         for (int v = 0; v < V; v++)
@@ -39,6 +40,9 @@ public class EdgeWeightedDigraph {
 	
     //creates a new edge in the graph
     public void createEdge(int from, int to, int weight) {
+    	
+    	from = getStopMap(from);
+    	to = getStopMap(to);
     	
     	DirectedEdge newEdge = new DirectedEdge(from, to, weight);
     	addEdge(newEdge);
