@@ -6,7 +6,7 @@ public class EdgeWeightedDigraph {
     private int E;                      // number of edges in this digraph
     private Bag<DirectedEdge>[] adj;    // adj[v] = adjacency list for vertex v
     private int[] indegree;             // indegree[v] = indegree of vertex v
-    private int[] stopMapping;
+    private int[] stopMapping;			// tells you which node represents which stop id
     
     //Initialises a graph with V vertices and 0 edges
     @SuppressWarnings("unchecked")
@@ -20,10 +20,22 @@ public class EdgeWeightedDigraph {
             adj[v] = new Bag<DirectedEdge>();
     }
     
-    //does some mapping to find out which node id corresponds to stop id
+    //maps stopId to adj node
     public void mapStop(int stopId, int adjIndex) {
     	stopMapping[adjIndex] = stopId;
     }
+    
+    //returns which node in the graph corresponds to which stopId
+    public int getStopMap(int stopId) {
+    	
+    	for(int index = 0; index < stopMapping.length; index++) {
+    		if (stopMapping[index]==stopId) {
+    			return index;
+    		}
+    	}
+    	return -1;
+    }
+    
 	
     //creates a new edge in the graph
     public void createEdge(int from, int to, int weight) {
