@@ -22,10 +22,21 @@ public class fileReader {
             while(reader.readLine()!=null) lineNum++;
             graph= new EdgeWeightedDigraph(lineNum);
 
+            int i=0;
+            reader = new BufferedReader(new FileReader("src/stops.txt"));
+            reader.readLine();
+            String currLine=reader.readLine();
+            while(currLine!=null)
+            {
+                String[] splitLine = currLine.trim().split("[,]");
+                graph.mapStop(Integer.parseInt(splitLine[0]),i);
+                i++;
+                currLine=reader.readLine();
+            }
+
             // reads transfers.txt and adds edges to the graph
             reader= new BufferedReader(new FileReader("src/transfers.txt"));
             reader.readLine();
-            String currLine;
             currLine=reader.readLine();
             while (currLine!=null)
             {
