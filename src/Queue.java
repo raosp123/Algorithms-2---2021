@@ -90,18 +90,6 @@ public class Queue<Item> implements Iterable<Item> {
     }
 
     /**
-     * Returns a string representation of this queue.
-     *
-     * @return the sequence of items in FIFO order, separated by spaces
-     */
-    public String toString() {
-        StringBuilder s = new StringBuilder();
-        for (Item item : this)
-            s.append(item + " ");
-        return s.toString();
-    }
-
-    /**
      * Returns an iterator that iterates over the items in this queue in FIFO order.
      *
      * @return an iterator that iterates over the items in this queue in FIFO order
@@ -128,20 +116,5 @@ public class Queue<Item> implements Iterable<Item> {
             current = current.next;
             return item;
         }
-    }
-
-    /**
-     * Unit tests the {@code Queue} data type.
-     *
-     * @param args the command-line arguments
-     */
-    public static void main(String[] args) {
-        Queue<String> queue = new Queue<String>();
-        while (!StdIn.isEmpty()) {
-            String item = StdIn.readString();
-            if (!item.equals("-")) queue.enqueue(item);
-            else if (!queue.isEmpty()) System.out.println(queue.dequeue() + " ");
-        }
-        System.out.println("(" + queue.size() + " left on queue)");
     }
 }
