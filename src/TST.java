@@ -179,7 +179,6 @@ public class TST<Value> {
 	public  Iterable<String> keysThatMatch(String pattern) {
 		Queue<String> queue = new Queue<String>();
 		collect(root, new StringBuilder(), 0, pattern, queue);
-		System.out.println("Keys that match executed.");
 		return queue;
 	}
 
@@ -229,11 +228,12 @@ public class TST<Value> {
 		//taking input for the search process.
 		System.out.println("Please enter the bus stop name or the first few characters:");
 		Scanner scan = new Scanner(System.in);
-		String stringInput = scan.next();
+		String stringInput = scan.nextLine();
 		System.out.println("Bus stations, which match the seach criteria:");
 
 		for (String s : st.keysWithPrefix(stringInput)) {
 			matchFound = true;
+			
 			for (int k = 0; k < ARR_SIZE - 1; k++) {
 
 				if (s.equals(stationsArray[k][1])) {
@@ -242,7 +242,6 @@ public class TST<Value> {
 
 						if (stationsArray[k][0].equals(arrWithFullInfo[k1][0])) {
 							System.out.println(arrWithFullInfo[k1][1]);
-							
 						}  
 					}			
 				} 
@@ -253,11 +252,10 @@ public class TST<Value> {
 		if (matchFound == false) {
 			System.out.println("No mathces found.");
 		}
+		scan.close();
 	}
 	
 	/**
-	 * Unit tests the {@code TST} data type.
-	 *
 	 * @param args the command-line arguments
 	 * @throws IOException 
 	 */
@@ -265,6 +263,3 @@ public class TST<Value> {
 		activateSearchSystem();
 	}
 }
-
-
-
