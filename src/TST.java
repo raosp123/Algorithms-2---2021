@@ -167,8 +167,7 @@ public class TST<Value> {
 		prefix.deleteCharAt(prefix.length() - 1);
 		collect(x.right, prefix, queue);
 	}
-
-
+	
 	/**
 	 * Returns all of the keys in the symbol table that match {@code pattern},
 	 * where . symbol is treated as a wildcard character.
@@ -196,7 +195,7 @@ public class TST<Value> {
 		if (c == '.' || c > x.c) collect(x.right, prefix, i, pattern, queue);
 	}
 	
-	public static void activateSearchSystem() throws IOException {
+	public static void activateSearchSystem(String stringInput) throws IOException {
 		
 		int count = 0;
 		boolean matchFound = false;
@@ -225,12 +224,8 @@ public class TST<Value> {
 			String key = (String) stationsArray[count][1];
 			st.put(key, i);
 		}
-		//taking input for the search process.
-		System.out.println("Please enter the bus stop name or the first few characters:");
-		Scanner scan = new Scanner(System.in);
-		String stringInput = scan.nextLine();
+		
 		System.out.println("Bus stations, which match the seach criteria:");
-
 		for (String s : st.keysWithPrefix(stringInput)) {
 			matchFound = true;
 			
@@ -252,14 +247,16 @@ public class TST<Value> {
 		if (matchFound == false) {
 			System.out.println("No mathces found.");
 		}
-		scan.close();
 	}
-	
-	/**
-	 * @param args the command-line arguments
-	 * @throws IOException 
-	 */
-	public static void main(String[] args) throws IOException {
-		activateSearchSystem();
-	}
+
+// 	public static void main(String[] args) throws IOException {
+		
+// 		System.out.println("Please enter the bus stop name or the first few characters:");
+// 		Scanner scan = new Scanner(System.in);
+// 		String strInput = scan.nextLine();
+// 		activateSearchSystem(strInput);
+// 		scan.close();
+// 	}	
 }
+
+
