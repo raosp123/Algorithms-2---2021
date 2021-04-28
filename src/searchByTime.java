@@ -31,7 +31,7 @@ public class searchByTime {
 	
 	//input String should be in format dd:hh:mm like in the spec sheet
 	//there is no output because I'm simply going to print out the results to the console for now.
-	public String[] mufat(String userInput) {	
+	public String[] getAllTrips(String userInput) {	
 		
 		
 		Time arrivalTarget = Time.valueOf(userInput);
