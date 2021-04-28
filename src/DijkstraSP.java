@@ -10,7 +10,7 @@ public class DijkstraSP {
     public DijkstraSP(EdgeWeightedDigraph G, int s) {
     	this.G = G;
     	s = G.getStopMap(s);
-    	
+    
         for (DirectedEdge e : G.edges()) {
             if (e.weight() < 0)
                 throw new IllegalArgumentException("edge " + e + " has negative weight");
@@ -42,6 +42,7 @@ public class DijkstraSP {
     	
     	sourceStop = G.getStopMap(sourceStop);
     	targetStop = G.getStopMap(targetStop);
+
     	
     	int[] stopMaps =  G.getStopMaps();
     	
@@ -153,7 +154,7 @@ public class DijkstraSP {
     private void validateVertex(int v) {
         int V = distTo.length;
         if (v < 0 || v >= V)
-            throw new IllegalArgumentException("vertex " + v + " is not between 0 and " + (V-1));
+            throw new IllegalArgumentException("Please enter valid stop IDs");
     }
 
 }

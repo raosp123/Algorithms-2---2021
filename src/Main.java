@@ -14,6 +14,10 @@ public class Main {
 
 				fileReader reader = new fileReader();
 				EdgeWeightedDigraph G = reader.returnGraph();
+				
+				if(G.getStopMap(sourceStop)==-1) {
+					throw new IllegalArgumentException("Please enter valid stop IDs");
+				}
 
 				DijkstraSP sp = new DijkstraSP(G,sourceStop);
 				String path = sp.shortestPath(sourceStop, targetStop);
@@ -24,7 +28,6 @@ public class Main {
 				throw new IllegalArgumentException("Please enter valid stop IDs");
 			}
 		}
-
 		else if (args[0].equalsIgnoreCase("TST"))
 		{
 			try
@@ -41,7 +44,6 @@ public class Main {
 				throw new IllegalArgumentException("Please enter valid stop name");
 			}
 		}
-
 		else if(args[0].equalsIgnoreCase("SBAT"))
 		{
 			try
