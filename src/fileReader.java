@@ -12,7 +12,7 @@ public class fileReader {
     private LocalTime currentDepartureTime;
     private LocalTime nextDepartureTime;
 
-    fileReader(){
+    EdgeWeightedDigraph fileReader(){
         try
         {
             // reads stops.txt and gives no of vertices to create a new graph
@@ -103,5 +103,6 @@ public class fileReader {
         catch (IOException e) {
             e.printStackTrace();
         }
+        return graph;
     }
 }
