@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.util.Scanner; 
 
 public class TST<Value> {
 	private int n;              // size
@@ -245,7 +244,7 @@ public class TST<Value> {
 		}
 		
 		if (matchFound == false) {
-			System.out.println("No mathces found.");
+			System.out.println("Bus stop doesn’t exist");
 		}
 	}
 
