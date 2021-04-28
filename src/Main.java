@@ -5,7 +5,13 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		
-
+		searchByTime xx = new searchByTime();
+		
+		xx.mufat("5:25:00");
+		
+		
+		
+/*
 		for(int i=0;i<args.length;i++) {
 			System.out.println(args[i]);
 		}
@@ -31,5 +37,7 @@ public class Main {
 		{
 			System.out.println("Invalid Input. Enter SP or TST or SBAT");
 		}
+	} */
 	}
+	
 }
