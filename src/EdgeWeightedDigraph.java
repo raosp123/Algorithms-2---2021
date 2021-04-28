@@ -37,6 +37,10 @@ public class EdgeWeightedDigraph {
     	return -1;
     }
     
+	public int[] getStopMaps () {
+		return stopMapping;
+	}
+	
 	
     //creates a new edge in the graph
     public void createEdge(int from, int to, int weight) {

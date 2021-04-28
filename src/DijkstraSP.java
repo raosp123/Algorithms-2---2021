@@ -37,6 +37,29 @@ public class DijkstraSP {
         // check optimality conditions
         assert check(G, s);
     }
+    
+    public String shortestPath(int sourceStop, int targetStop) {
+    	
+    	sourceStop = G.getStopMap(sourceStop);
+    	targetStop = G.getStopMap(targetStop);
+    	
+    	int[] stopMaps =  G.getStopMaps();
+    	
+    	StringBuilder s = new StringBuilder();
+    	
+    	for(DirectedEdge p = edgeTo[targetStop]; p!=null ;p = edgeTo[p.from()]) {
+    		
+    		int from = stopMaps[p.from()];
+    		int to = stopMaps[p.to()];
+    		
+    		//System.out.println(from + " -> " + to + "  ");
+    		
+    		s.insert(0, "(" + from + " -> " + to + ", "+ p.weight() + ")  ");
+    		
+    	}
+    	s.insert(0, "Shortest Path Route: ");
+    	return s.toString();
+    }
 
     // relax edge e and update pq if changed
     private void relax(DirectedEdge e) {
@@ -71,18 +94,14 @@ public class DijkstraSP {
      * @throws IllegalArgumentException unless {@code 0 <= v < V}
      */
     public boolean hasPathTo(int v) {
-    	v = G.getStopMap(v);
         validateVertex(v);
         return distTo[v] < Double.POSITIVE_INFINITY;
     }
-
 
     // check optimality conditions:
     // (i) for all edges e:            distTo[e.to()] <= distTo[e.from()] + e.weight()
     // (ii) for all edge e on the SPT: distTo[e.to()] == distTo[e.from()] + e.weight()
     private boolean check(EdgeWeightedDigraph G, int s) {
-    	
-    	s = G.getStopMap(s);
 
         // check that edge weights are non-negative
         for (DirectedEdge e : G.edges()) {
@@ -132,19 +151,9 @@ public class DijkstraSP {
 
     // throw an IllegalArgumentException unless {@code 0 <= v < V}
     private void validateVertex(int v) {
-    	v = G.getStopMap(v);
         int V = distTo.length;
         if (v < 0 || v >= V)
             throw new IllegalArgumentException("vertex " + v + " is not between 0 and " + (V-1));
-    }
-
-    /**
-     * Unit tests the {@code DijkstraSP} data type.
-     *
-     * @param args the command-line arguments
-     */
-    public static void main(String[] args) {
-       
     }
 
 }
