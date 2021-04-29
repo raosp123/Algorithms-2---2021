@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.sql.Time;
 import java.time.LocalTime;
 import java.util.ArrayList;
-
+import java.util.Arrays;
 
 public class searchByTime {
 
@@ -61,8 +61,7 @@ public class searchByTime {
 	            currLine=reader.readLine();
 	            
 	        }
-	        System.out.println(tripIDlist.get(1));
-	        System.out.println(tripIDlist.size());
+	        
 	        //do it all again this time shoving all the relevant data into an array based on trip ID,
 	        reader= new BufferedReader(new FileReader("src/stop_times.txt"));      
 	        reader.readLine();      // skips the first line
@@ -82,12 +81,13 @@ public class searchByTime {
 	        }
 	        
 
-	        System.out.println(parsed_stop_times.size());
+	        //System.out.println(parsed_stop_times.size());
 	        String[] output = new String[parsed_stop_times.size()];
 	        		
 	        		
 	        parsed_stop_times.toArray(output);
 	        
+	        Arrays.sort(output);
 	        
 	        return output;
 	        
