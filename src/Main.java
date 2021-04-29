@@ -1,16 +1,14 @@
 import java.io.IOException;
+import java.time.LocalTime;
 
 public class Main {
 
 	public static void main(String[] args) throws IOException {
 
 		if(args[0].equalsIgnoreCase("SP")) {
-			try
-			{
+			try {
 				int sourceStop = Integer.parseInt(args[1]);
 				int targetStop = Integer.parseInt(args[2]);
-
-				//System.out.println("Source Stop is: "+ sourceStop + "\nTarget Stop is: "+ targetStop);
 
 				fileReader reader = new fileReader();
 				EdgeWeightedDigraph G = reader.returnGraph();
@@ -28,10 +26,8 @@ public class Main {
 				throw new IllegalArgumentException("Please enter valid stop IDs");
 			}
 		}
-		else if (args[0].equalsIgnoreCase("TST"))
-		{
-			try
-			{
+		else if (args[0].equalsIgnoreCase("TST")) {
+			try {
 				TST<Integer> tree = new TST<Integer>();
 				String input = args[1];
 				for (int i = 2; i < args.length; i++) {
@@ -39,24 +35,20 @@ public class Main {
 				}
 				tree.activateSearchSystem(input.toUpperCase());
 			}
-			catch(ArrayIndexOutOfBoundsException e)
-			{
+			catch(ArrayIndexOutOfBoundsException e) {
 				throw new IllegalArgumentException("Please enter valid stop name");
 			}
 		}
-		else if(args[0].equalsIgnoreCase("SBAT"))
-		{
-			try
-			{
+		else if(args[0].equalsIgnoreCase("SBAT")) {
+			try {
+				LocalTime.parse(args[1]);
 				searchByTime search = new searchByTime();
 				search.getAllTrips(args[1]);
 			}
-			catch(ArrayIndexOutOfBoundsException e)
-			{
+			catch(Exception e) {
 				throw new IllegalArgumentException("Please enter valid time");
 			}
 		}
-
 		else {
 			throw new IllegalArgumentException("Invalid Command-Line Inputs, Please Enter SP or TST or SBAT");
 		}
