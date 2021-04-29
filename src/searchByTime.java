@@ -25,16 +25,14 @@ public class searchByTime {
 	//should merge this with fileReader class later
 	
 	
-	
-	private ArrayList<String> parsed_stop_times = new ArrayList<String>();
-	private ArrayList<String> tripIDlist = new ArrayList<String>();
+
 	
 	//input String should be in format dd:hh:mm like in the spec sheet
-	//there is no output because I'm simply going to print out the results to the console for now.
 	public String[] getAllTrips(String userInput) {	
 		
+		ArrayList<String> parsed_stop_times = new ArrayList<String>();
+		ArrayList<String> tripIDlist = new ArrayList<String>();
 		
-		Time arrivalTarget = Time.valueOf(userInput);
 		try
 		{
 			BufferedReader reader= new BufferedReader(new FileReader("src/stop_times.txt"));
@@ -42,7 +40,6 @@ public class searchByTime {
 	        
 	        
 	        String currLine = reader.readLine();
-	        Time convertedTime = new Time(0);
 	        while (currLine!=null)
 	        {
 	            String[] splitLine = currLine.trim().split("[,]");
@@ -52,12 +49,11 @@ public class searchByTime {
 	            {
 	            	// check if it matches the user inputed time
 	            	//if it does then off the trip ID goes into another arrayList.
-	            	if(Time.valueOf(splitLine[1].trim()).equals(arrivalTarget)) {
-	            		tripIDlist.add(splitLine[0]);
-	            		System.out.println(tripIDlist.size());
+	            	if(splitLine[1].trim().equals(userInput.trim())) {
+	            		tripIDlist.add(splitLine[0].trim());
 	            	}
 	            	
-	            
+	            	
 	            }
 	            
 	           	//I think i'm meant to do something here but I forget :)
@@ -65,26 +61,28 @@ public class searchByTime {
 	            currLine=reader.readLine();
 	            
 	        }
-	        
-	        
+	        System.out.println(tripIDlist.get(1));
+	        System.out.println(tripIDlist.size());
 	        //do it all again this time shoving all the relevant data into an array based on trip ID,
 	        reader= new BufferedReader(new FileReader("src/stop_times.txt"));      
 	        reader.readLine();      // skips the first line
-	        
+	        currLine = reader.readLine();
 	        while (currLine!=null)
-	        {
+	        {        	
 	        	for(int i = 0; i < tripIDlist.size(); i++)
-	        	{
+	        	{  
 	        		String[] splitLine = currLine.split("[,]");
-	        		if (splitLine[0].equals(tripIDlist.get(i) ))
+	        		if (splitLine[0].equals(tripIDlist.get(i)))
 	        		{
+	        			//System.out.println(currLine);
 	        			parsed_stop_times.add(currLine);
 	        		}
 	        	}
 	            currLine=reader.readLine();
 	        }
 	        
-	        
+
+	        System.out.println(parsed_stop_times.size());
 	        String[] output = new String[parsed_stop_times.size()];
 	        		
 	        		
@@ -103,7 +101,7 @@ public class searchByTime {
             e.printStackTrace();
         }
 		
-		
+		//you shouldn't reach this
 		return null;
 		
 		
