@@ -28,7 +28,7 @@ public class searchByTime {
 
 	
 	//input String should be in format dd:hh:mm like in the spec sheet
-	public String[] getAllTrips(String userInput) {	
+	public void getAllTrips(String userInput) {	
 		
 		ArrayList<String> parsed_stop_times = new ArrayList<String>();
 		ArrayList<String> tripIDlist = new ArrayList<String>();
@@ -89,7 +89,11 @@ public class searchByTime {
 	        
 	        Arrays.sort(output);
 	        
-	        return output;
+	        
+			for (int i = 0; i < output.length; i++)
+			{
+				System.out.println(output[i]);
+			}
 	        
 	        
 	    	
@@ -99,14 +103,7 @@ public class searchByTime {
         }
         catch (IOException e) {
             e.printStackTrace();
-        }
-		
-		//you shouldn't reach this
-		return null;
-		
-		
-		
-		
+        }			
 	}
 }
 
