@@ -46,7 +46,16 @@ public class Main {
 				{
 					time="0"+time;
 				}
+				else if(time.charAt(0)=='1'&&time.charAt(1)==':')
+				{
+					time="0"+time;
+				}
+				else if(time.charAt(0)=='2'&&time.charAt(1)==':')
+				{
+					time="0"+time;
+				}
 				LocalTime.parse(time);
+				System.out.println(time);
 				if (time.charAt(0)=='0')
 				{
 					time=time.substring(1);
