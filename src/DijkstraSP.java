@@ -59,6 +59,7 @@ public class DijkstraSP {
     		
     	}
     	s.insert(0, "Shortest Path Route: ");
+    	s.append("\nTotal Cost: " + distTo[targetStop]);
     	return s.toString();
     }
 
@@ -73,27 +74,14 @@ public class DijkstraSP {
         }
     }
 
-    /**
-     * Returns the length of a shortest path from the source vertex {@code s} to vertex {@code v}.
-     * @param  v the destination vertex
-     * @return the length of a shortest path from the source vertex {@code s} to vertex {@code v};
-     *         {@code Double.POSITIVE_INFINITY} if no such path
-     * @throws IllegalArgumentException unless {@code 0 <= v < V}
-     */
+    //returns length of shortestPath
     public double distTo(int v) {
     	v = G.getStopMap(v);
         validateVertex(v);
         return distTo[v];
     }
 
-    /**
-     * Returns true if there is a path from the source vertex {@code s} to vertex {@code v}.
-     *
-     * @param  v the destination vertex
-     * @return {@code true} if there is a path from the source vertex
-     *         {@code s} to vertex {@code v}; {@code false} otherwise
-     * @throws IllegalArgumentException unless {@code 0 <= v < V}
-     */
+    //returns true if a path to v exists from source
     public boolean hasPathTo(int v) {
         validateVertex(v);
         return distTo[v] < Double.POSITIVE_INFINITY;

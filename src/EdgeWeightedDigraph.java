@@ -45,7 +45,7 @@ public class EdgeWeightedDigraph {
     //creates a new edge in the graph
     public void createEdge(int from, int to, int weight) {
     	
-    	from = getStopMap(from);
+    	from = getStopMap(from); 
     	to = getStopMap(to);
     	
     	DirectedEdge newEdge = new DirectedEdge(from, to, weight);
