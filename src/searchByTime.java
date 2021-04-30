@@ -6,6 +6,7 @@ import java.sql.Time;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class searchByTime {
 
@@ -92,21 +93,11 @@ public class searchByTime {
 	        {
 	        	
 	        	
-		        String[] output = new String[parsed_stop_times.size()];
-		        	
-		        //list.toArray has cost of N
-		        parsed_stop_times.toArray(output);
 		        
 		        
-		        
-		        Arrays.sort(output);
-		        
-		        
-				for (int i = 0; i < output.length; i++)
-				{
-					System.out.println(output[i]);
-				}
-	        
+		        Collections.sort(parsed_stop_times);
+                for(String s: parsed_stop_times)
+                    System.out.println(s);
 	        }
 	        else
 	        	System.out.println("There are no stop times matching the input.");
