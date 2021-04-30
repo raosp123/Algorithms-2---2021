@@ -81,22 +81,26 @@ public class searchByTime {
 	        }
 	        
 
-	        //System.out.println(parsed_stop_times.size());
-	        String[] output = new String[parsed_stop_times.size()];
-	        		
-	        		
-	        parsed_stop_times.toArray(output);
+
+	        if (parsed_stop_times.size() != 0)
+	        {
+		        String[] output = new String[parsed_stop_times.size()];
+		        		
+		        parsed_stop_times.toArray(output);
+		        
+		        
+		        
+		        Arrays.sort(output);
+		        
+		        
+				for (int i = 0; i < output.length; i++)
+				{
+					System.out.println(output[i]);
+				}
 	        
-	        Arrays.sort(output);
-	        
-	        
-			for (int i = 0; i < output.length; i++)
-			{
-				System.out.println(output[i]);
-			}
-	        
-	        
-	    	
+	        }
+	        else
+	        	System.out.println("There are no stop times matching the input.");
 		}
         catch (FileNotFoundException e) {
             e.printStackTrace();
