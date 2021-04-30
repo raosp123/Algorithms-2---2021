@@ -41,9 +41,18 @@ public class Main {
 		}
 		else if(args[0].equalsIgnoreCase("SBAT")) {
 			try {
-				LocalTime.parse(args[1]);
+				String time= args[1];
+				if(time.charAt(0)!='1'&& time.charAt(0)!='2'&& time.charAt(0)!='0')
+				{
+					time="0"+time;
+				}
+				LocalTime.parse(time);
+				if (time.charAt(0)=='0')
+				{
+					time=time.substring(1);
+				}
 				searchByTime search = new searchByTime();
-				search.getAllTrips(args[1]);
+				search.getAllTrips(time);
 			}
 			catch(Exception e) {
 				throw new IllegalArgumentException("Please enter valid time");
