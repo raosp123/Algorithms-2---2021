@@ -30,7 +30,7 @@ public class Main {
 			try {
 				TST<Integer> tree = new TST<Integer>();
 				String input = args[1];
-				for (int i = 2; i < args.length; i++) {
+				for (int i = 2; i < args.length; i++) { 
 					input = input + " " + args[i];
 				}
 				tree.activateSearchSystem(input.toUpperCase());
